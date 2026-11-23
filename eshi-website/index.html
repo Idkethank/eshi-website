@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#21150f">
+  <title>A little place for Eshi</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <audio id="background-music" loop preload="none">
+    <source src="assets/music/favorite-song.mp3" type="audio/mpeg">
+  </audio>
+
+  <main>
+    <!-- WELCOME / TURKEY GAME -->
+    <section class="screen active" id="welcome-screen" aria-labelledby="welcome-title">
+      <p class="eyebrow">A LITTLE THANKSGIVING SURPRISE</p>
+      <h1 id="welcome-title">Hey, Eshi.</h1>
+      <p class="intro">
+        I made a little something for you.<br>
+        But first, there's someone you need to catch.
+      </p>
+
+      <div class="game-area" id="game-area">
+        <div class="game-hint" id="game-hint">Catch the turkey ↓</div>
+        <button class="turkey" id="turkey" type="button" aria-label="Catch the turkey">🦃</button>
+      </div>
+
+      <p class="tiny-note" id="catch-status" aria-live="polite">
+        Tap the turkey to catch it!
+      </p>
+    </section>
+
+    <!-- STORY INTRO + STORY -->
+    <section class="screen" id="story-screen" aria-labelledby="story-title">
+      <div class="story-heading">
+        <p class="eyebrow">A STORY, IN LITTLE PIECES</p>
+        <h2 id="story-title">Somehow, it became you.</h2>
+        <p class="section-subtitle">
+          I wanted to put this somewhere you could come back to.
+        </p>
+        <p id="chapter-number" class="chapter-number">A STORY IN NINE PARTS</p>
+        <h3 id="chapter-name"></h3>
+        <p id="story-instruction">There's a little more to this story...</p>
+      </div>
+
+      <div
+        class="story-sky"
+        id="story-sky"
+        aria-live="polite"
+        aria-label="Story fragments appearing"
+      ></div>
+
+      <button class="primary-button" id="story-start-button" type="button">
+        Begin the story →
+      </button>
+
+      <button class="primary-button hidden" id="next-part-button" type="button">
+        Next part →
+      </button>
+    </section>
+
+    <!-- THANK YOU -->
+    <section class="screen" id="thanks-screen" aria-labelledby="thanks-title">
+      <p class="eyebrow">BEFORE THE MEMORIES</p>
+      <h2 id="thanks-title">Thank you.</h2>
+
+      <div class="letter-text centered">
+        <p>
+          For the conversations, the laughs, the little moments,
+          and all the things that probably seemed ordinary at the time.
+        </p>
+
+        <p>
+          I don't know if you realize how much some of those moments
+          mean to me, but I wanted you to know that I'm grateful for them.
+        </p>
+      </div>
+
+      <button class="primary-button" id="memories-button" type="button">
+        A few memories →
+      </button>
+    </section>
+
+    <!-- MEMORIES -->
+    <section class="screen" id="memories-screen" aria-labelledby="memories-title">
+      <p class="eyebrow">THE LITTLE THINGS I REMEMBER</p>
+      <h2 id="memories-title">Favorite memories.</h2>
+      <p class="section-subtitle">
+        Click one. There's a little more behind each.
+      </p>
+
+      <div class="memory-grid">
+        <button class="memory-card" data-memory="inside-joke" type="button">
+          <span class="memory-date">AN INSIDE JOKE</span>
+          <strong>Bannani shoeini?</strong>
+          <span>One question. One very good reaction.</span>
+          <span class="memory-open">Open memory ↗</span>
+        </button>
+
+        <button class="memory-card" data-memory="blessing" type="button">
+          <span class="memory-date">A VERY IMPORTANT PHOTO</span>
+          <strong>Blessing my eyes</strong>
+          <span>Some things deserve their own moment.</span>
+          <span class="memory-open">Open memory ↗</span>
+        </button>
+
+        <button class="memory-card" data-memory="phone-memory" type="button">
+          <span class="memory-date">ONE MORE MEMORY</span>
+          <strong>To be continued...</strong>
+          <span>There's another screenshot coming.</span>
+          <span class="memory-open">Open memory ↗</span>
+        </button>
+      </div>
+
+      <!-- EXPANDED MEMORY WINDOW -->
+      <div class="memory-overlay hidden" id="memory-overlay" aria-hidden="true">
+        <article
+          class="memory-detail"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="memory-detail-title"
+        >
+          <button
+            class="close-button"
+            id="close-memory"
+            type="button"
+            aria-label="Close memory"
+          >×</button>
+
+          <p class="eyebrow" id="memory-detail-kicker">A MEMORY</p>
+          <h3 id="memory-detail-title"></h3>
+
+          <img
+            id="memory-detail-image"
+            class="memory-image hidden"
+            src=""
+            alt=""
+          >
+
+          <p id="memory-detail-copy" class="memory-thought"></p>
+        </article>
+      </div>
+
+      <p class="closing-line">
+        And there are a lot more little things I could add.
+      </p>
+
+      <button class="text-button" id="replay-button" type="button">
+        Start again
+      </button>
+    </section>
+  </main>
+
+  <!-- MUSIC CONTROL -->
+  <div class="music-control">
+    <button id="music-toggle" type="button" aria-label="Play background music">
+      ♫ <span id="music-label">Play our song</span>
+    </button>
+    <span class="music-tip">Add your song in assets/music</span>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
